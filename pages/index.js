@@ -7,7 +7,6 @@ export default function Home() {
   const [count, setCount] = useState(0)
   const [ todolist, setTodoList] = useState(["a", "b", "c", "d"])
   const [addTodo, setAddTodo] = useState('')
-  const [disabled, setDisabled] = useState(true)
   const [editabledTodo, setEditabledTodo] = useState(null)
   
   const editTask = (item, index) => {
