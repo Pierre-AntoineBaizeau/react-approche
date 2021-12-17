@@ -1,14 +1,24 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+
+import Card from '../components/Card'
 
 export default function Home() {
   const [count, setCount] = useState(0)
   const [ todolist, setTodoList] = useState(["a", "b", "c", "d"])
   const [addTodo, setAddTodo] = useState('')
   const [editabledTodo, setEditabledTodo] = useState(null)
-  
+  const [color, setColor] = useState('#fff')
+  const [cardList, setCardList] = useState([
+    ['titre', 'dec', '30', 'https://images.unsplash.com/photo-1639502496516-95531e23e304?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80'],
+    ['titre-2', 'decscription', '20', 'https://images.unsplash.com/photo-1639502496516-95531e23e304?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80'],
+    ['titre-2', 'decscription', '20', 'https://images.unsplash.com/photo-1639502496516-95531e23e304?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80'],
+    ['titre-2', 'decscription', '20', 'https://images.unsplash.com/photo-1639502496516-95531e23e304?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80'],
+    ['titre-2', 'decscription', '20', 'https://images.unsplash.com/photo-1639502496516-95531e23e304?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80'],
+  ])
+
   const editTask = (item, index) => {
     setEditabledTodo(index)
   }
@@ -18,6 +28,21 @@ export default function Home() {
     newTodoList[editabledTodo] = e.target.value
     setTodoList(newTodoList)
   }
+
+  useEffect(()=> {
+    console.log("modification")
+  }, [todolist]);
+
+  useEffect(()=> {
+    count >= 1 && setColor('#222')
+  }, [count]);
+
+  useEffect(()=> {
+    localStorage.setItem("todos", todolist)
+    return () => {
+      localStorage.clear()
+    }
+  }, [todolist]);
 
   return (
     <div className={styles.container}>
@@ -30,7 +55,7 @@ export default function Home() {
       <main className={styles.main}>
        <h1>Hello</h1>
        <h3>Count : {count}</h3>
-       <button onClick={() => setCount(prev => prev + 1)}>Click</button>
+       <button style={{ backgroundColor : color}} onClick={() => setCount(prev => prev + 1)}>Click</button>
 
       {/* i > 1 ? true : false
           i > 1 && true  */}
@@ -57,6 +82,19 @@ export default function Home() {
            )
          })
        )}
+
+<div className='allCard'>
+
+  { cardList.length > 0 && (
+          cardList.map((card, i) => {
+            return (
+              <div  key={i}>
+                  <Card title={card[0]} desc={card[1]} price={card[2]} image={card[3]} />
+            </div>
+            )
+          })
+        )}
+</div>
       </main>
 
     </div>
