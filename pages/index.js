@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import React, {useState, useEffect} from 'react'
-
+import { useRouter } from 'next/router'
 import Card from '../components/Card'
 
 export default function Home() {
@@ -43,6 +43,7 @@ export default function Home() {
       localStorage.clear()
     }
   }, [todolist]);
+
 
   return (
     <div className={styles.container}>
