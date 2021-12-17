@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 export default function Card(props) {
 
-    
+    const router = useRouter()
     function handleClick(prix, titre, description, image) {
         titre = props.title
         description = props.desc
@@ -27,7 +27,10 @@ export default function Card(props) {
             >
           <a>Page</a>
           </Link>
+          
             <button onClick={handleClick}>Afficher les props dans la console</button>
         </div>
     )
 }
+
+// bsisic@elliotcorp.com

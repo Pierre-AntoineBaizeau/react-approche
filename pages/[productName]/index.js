@@ -5,7 +5,6 @@ import Image from "next/image";
 export default function ProductDetails() {
     const router = useRouter()
     const { name, desc, prix, img } = router.query
-   
     return (
         //<Card title={card[0]} desc={card[1]} price={card[2]} image={card[3]} />
         <div>
