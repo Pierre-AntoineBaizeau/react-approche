@@ -15,7 +15,7 @@ export default function Home() {
     ['titre', 'dec', '30', 'https://images.unsplash.com/photo-1639502496516-95531e23e304?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80'],
     ['titre-2', 'decscription', '20', 'https://images.unsplash.com/photo-1639502496516-95531e23e304?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80'],
     ['titre-2', 'decscription', '20', 'https://images.unsplash.com/photo-1639502496516-95531e23e304?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80'],
-    ['titre-2', 'decscription', '20', 'https://images.unsplash.com/photo-1639502496516-95531e23e304?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80'],
+    ['titre-5', 'decscription', '20', 'https://images.unsplash.com/photo-1639502496516-95531e23e304?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80'],
     ['titre-2', 'decscription', '20', 'https://images.unsplash.com/photo-1639502496516-95531e23e304?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80'],
   ])
 
@@ -57,6 +57,7 @@ export default function Home() {
        <h1>Hello</h1>
        <h3>Count : {count}</h3>
        <button style={{ backgroundColor : color}} onClick={() => setCount(prev => prev + 1)}>Click</button>
+       <button style={{ backgroundColor : color}} onClick={() => setCount(prev => prev - 1)}>Click -</button>
 
       {/* i > 1 ? true : false
           i > 1 && true  */}
@@ -84,6 +85,7 @@ export default function Home() {
          })
        )}
 
+         
 <div className='allCard'>
 
   { cardList.length > 0 && (
